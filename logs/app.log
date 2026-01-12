@@ -1,0 +1,12 @@
+2026-01-12 20:21:06,415 | INFO | stage_1_fundamentals | Application start
+2026-01-12 20:21:06,415 | INFO | stage_1_fundamentals | Pipeline: старт
+2026-01-12 20:21:06,415 | INFO | stage_1_fundamentals | Extract: получение данных
+2026-01-12 20:21:06,415 | INFO | stage_1_fundamentals | Extract: получено 3 записей
+2026-01-12 20:21:06,416 | INFO | stage_1_fundamentals | Transform: начало трансформации
+2026-01-12 20:21:06,416 | INFO | stage_1_fundamentals | Transform: 2 записей после фильтрации
+2026-01-12 20:21:06,416 | INFO | stage_1_fundamentals | Load: загрузка данных
+2026-01-12 20:21:06,416 | INFO | stage_1_fundamentals | Load: {'id': 1, 'name': 'Alice', 'age': 30}
+2026-01-12 20:21:06,416 | INFO | stage_1_fundamentals | Load: {'id': 3, 'name': 'Charlie', 'age': 25}
+2026-01-12 20:21:06,417 | INFO | stage_1_fundamentals | Load: загрузка завершена
+2026-01-12 20:21:06,417 | INFO | stage_1_fundamentals | Pipeline: завершён успешно
+2026-01-12 20:21:06,417 | INFO | stage_1_fundamentals | Application end

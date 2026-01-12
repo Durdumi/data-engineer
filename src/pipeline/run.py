@@ -7,8 +7,13 @@ from src.logger import logger
 def run_pipeline() -> None:
     logger.info("Pipeline: старт")
 
-    raw_data = extract_data()
-    transformed_data = transform_data(raw_data)
-    load_data(transformed_data)
+    try:
+        raw_data = extract_data()
+        transformed_data = transform_data(raw_data)
+        load_data(transformed_data)
 
-    logger.info("Pipeline: завершён")
+    except Exception:
+        logger.exception("Pipeline: ошибка выполнения")
+        raise
+
+    logger.info("Pipeline: завершён успешно")
