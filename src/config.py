@@ -1,14 +1,14 @@
-from pathlib import Path
+from dataclasses import dataclass
+from dotenv import load_dotenv
+import os
 
-# Базовая директория проекта
-BASE_DIR = Path(__file__).resolve().parents[1]
+load_dotenv()
 
-# База данных
-DB_PATH = BASE_DIR / "data" / "database.sqlite"
 
-# CoinGecko API
-COINGECKO_API_URL = "https://api.coingecko.com/api/v3/simple/price"
+@dataclass(frozen=True)
+class AppConfig:
+    app_name: str = os.getenv("APP_NAME", "app")
+    log_level: str = os.getenv("LOG_LEVEL", "INFO")
 
-# Какие монеты и валюты забираем
-COINS = ["bitcoin", "ethereum"]
-VS_CURRENCY = "usd"
+
+config = AppConfig()
