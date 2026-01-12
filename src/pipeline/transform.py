@@ -2,13 +2,13 @@ from src.logger import logger
 
 
 def transform_data(data: list[dict]) -> list[dict]:
-    logger.info("Transform: начало трансформации")
+    logger.info("Transform: начало обработки данных")
 
-    transformed = [
-        row for row in data if row["age"] >= 18
-    ]
+    transformed = []
+    for row in data:
+        if row["age"] >= 18:
+            row["adult"] = True
+            transformed.append(row)
 
-    logger.info(
-        f"Transform: {len(transformed)} записей после фильтрации"
-    )
+    logger.info(f"Transform: {len(transformed)} записей после фильтрации")
     return transformed

@@ -10,3 +10,62 @@
 2026-01-12 20:21:06,417 | INFO | stage_1_fundamentals | Load: загрузка завершена
 2026-01-12 20:21:06,417 | INFO | stage_1_fundamentals | Pipeline: завершён успешно
 2026-01-12 20:21:06,417 | INFO | stage_1_fundamentals | Application end
+2026-01-12 20:24:11,583 | INFO | stage_1_fundamentals | Application start
+2026-01-12 20:24:11,583 | INFO | stage_1_fundamentals | Pipeline: старт
+2026-01-12 20:24:11,583 | INFO | stage_1_fundamentals | Extract: чтение данных из CSV
+2026-01-12 20:24:11,590 | INFO | stage_1_fundamentals | Extract: получено 4 записей
+2026-01-12 20:24:11,591 | INFO | stage_1_fundamentals | Transform: начало обработки данных
+2026-01-12 20:24:11,591 | INFO | stage_1_fundamentals | Transform: 2 записей после фильтрации
+2026-01-12 20:24:11,591 | INFO | stage_1_fundamentals | Load: сохранение данных в CSV
+2026-01-12 20:24:11,592 | INFO | stage_1_fundamentals | Load: данные сохранены в data\output.csv
+2026-01-12 20:24:11,592 | INFO | stage_1_fundamentals | Pipeline: завершён успешно
+2026-01-12 20:24:11,592 | INFO | stage_1_fundamentals | Application end
+2026-01-12 20:37:09,264 | INFO | stage_1_fundamentals | Application start
+2026-01-12 20:37:09,264 | INFO | stage_1_fundamentals | Pipeline: старт
+2026-01-12 20:37:09,264 | INFO | stage_1_fundamentals | Extract: получение данных из API https://jsonplaceholder.typicode.com/users
+2026-01-12 20:37:09,847 | INFO | stage_1_fundamentals | Transform: начало обработки данных
+2026-01-12 20:37:09,848 | INFO | stage_1_fundamentals | Transform: 10 записей после фильтрации
+2026-01-12 20:37:09,848 | INFO | stage_1_fundamentals | Load: подключение к PostgreSQL
+2026-01-12 20:37:09,880 | ERROR | stage_1_fundamentals | Load: ошибка при записи в PostgreSQL
+Traceback (most recent call last):
+  File "D:\Projects\stage_1_fundamentals\src\pipeline\load.py", line 25, in load_data
+    cur.execute("""
+    ~~~~~~~~~~~^^^^
+        INSERT INTO users (id, name, age, adult)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<4 lines>...
+            adult = EXCLUDED.adult
+            ^^^^^^^^^^^^^^^^^^^^^^
+    """, (row["id"], row["name"], row["age"], row["adult"]))
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.errors.UndefinedTable: relation "users" does not exist
+LINE 2:                 INSERT INTO users (id, name, age, adult)
+                                    ^
+
+2026-01-12 20:37:09,881 | INFO | stage_1_fundamentals | Pipeline: завершён успешно
+2026-01-12 20:37:09,881 | INFO | stage_1_fundamentals | Application end
+2026-01-12 20:38:15,558 | INFO | stage_1_fundamentals | Application start
+2026-01-12 20:38:15,558 | INFO | stage_1_fundamentals | Pipeline: старт
+2026-01-12 20:38:15,558 | INFO | stage_1_fundamentals | Extract: получение данных из API https://jsonplaceholder.typicode.com/users
+2026-01-12 20:38:16,124 | INFO | stage_1_fundamentals | Transform: начало обработки данных
+2026-01-12 20:38:16,125 | INFO | stage_1_fundamentals | Transform: 10 записей после фильтрации
+2026-01-12 20:38:16,125 | ERROR | stage_1_fundamentals | Pipeline: ошибка выполнения
+Traceback (most recent call last):
+  File "D:\Projects\stage_1_fundamentals\src\pipeline\run.py", line 12, in run_pipeline
+    load_data(transformed_data)
+    ~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "D:\Projects\stage_1_fundamentals\src\pipeline\load.py", line 2, in load_data
+    conn = psycopg2.connect(...)
+           ^^^^^^^^
+NameError: name 'psycopg2' is not defined
+2026-01-12 20:39:57,129 | INFO | stage_1_fundamentals | Application start
+2026-01-12 20:39:57,130 | INFO | stage_1_fundamentals | Pipeline: старт
+2026-01-12 20:39:57,130 | INFO | stage_1_fundamentals | Extract: получение данных из API https://jsonplaceholder.typicode.com/users
+2026-01-12 20:39:57,743 | INFO | stage_1_fundamentals | Transform: начало обработки данных
+2026-01-12 20:39:57,743 | INFO | stage_1_fundamentals | Transform: 10 записей после фильтрации
+2026-01-12 20:39:57,743 | INFO | stage_1_fundamentals | Load: подключение к PostgreSQL
+2026-01-12 20:39:57,785 | INFO | stage_1_fundamentals | Load: данные успешно загружены
+2026-01-12 20:39:57,785 | INFO | stage_1_fundamentals | Pipeline: завершён успешно
+2026-01-12 20:39:57,785 | INFO | stage_1_fundamentals | Application end
+2026-01-12 20:42:05,857 | INFO | stage_1_fundamentals | Transform: начало обработки данных
+2026-01-12 20:42:05,857 | INFO | stage_1_fundamentals | Transform: 2 записей после фильтрации
